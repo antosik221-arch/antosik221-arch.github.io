@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Studio Efekt | Architektura Przyszłości</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">STUDIO EFEKT</div>
+            <ul>
+                <li><a href="#projekty">Projekty</a></li>
+                <li><a href="#zespol">Zespół</a></li>
+                <li><a href="#kontakt">Strefa 00</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>NANO BANANA</h1>
+            <p>Kinetyczna architektura podążająca za słońcem.</p>
+            <button class="cta-btn">Obejrzyj Showreel</button>
+        </div>
+    </section>
+
+    <section id="projekty" class="grid">
+        <div class="card">
+            <h3>Mechanika Rotacji</h3>
+            <p>Centralny trzpień i ruchome moduły mieszkalne.</p>
+        </div>
+        <div class="card">
+            <h3>Goniec 00</h3>
+            <p>Systemy fizycznego przesyłu danych wewnątrz struktury.</p>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 Studio Efekt. Nadzór: Pixel (CEO).</p>
+    </footer>
+</body>
+</html>
