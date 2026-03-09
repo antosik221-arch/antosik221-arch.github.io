@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strefa 00: Terminal Suwerennego Rozwoju</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+    <style>
+        :root {
+            --pink: #FF3366;
+            --teal: #5BC0BE;
+            --yellow: #FFD166;
+            --navy: #0B132B;
+            --card: #1C2541;
+            --text: #E0E1DD;
+        }
+        body {
+            background-color: var(--navy);
+            color: var(--text);
+            font-family: 'Inter', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 380px;
+        }
+        .card {
+            background-color: var(--card);
+            border: 1px solid rgba(91, 192, 190, 0.1);
+            transition: all 0.3s ease;
+        }
+        .card:hover {
+            border-color: var(--pink);
+            box-shadow: 0 0 20px rgba(255, 51, 102, 0.1);
+        }
+        .status-pulse {
+            width: 10px;
+            height: 10px;
+            background-color: var(--teal);
+            border-radius: 50%;
+            display: inline-block;
+            box-shadow: 0 0 10px var(--teal);
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(0.95); opacity: 0.7; }
+            70% { transform: scale(1.1); opacity: 1; }
+            100% { transform: scale(0.95); opacity: 0.7; }
+        }
+        /* Custom Flowchart styling without SVG */
+        .flow-box {
+            position: relative;
+            padding: 1rem;
+            background: var(--navy);
+            border: 2px solid var(--teal);
+            text-align: center;
+        }
+        .flow-line {
+            height: 2px;
+            background: var(--teal);
+            flex-grow: 1;
+            min-width: 20px;
+        }
+    </style>
+</head>
+<body class="selection:bg-pink-500 selection:text-white">
+
+    <nav class="sticky top-0 z-50 bg-[#0B132B]/80 backdrop-blur-md border-b border-slate-800 px-6 py-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="status-pulse"></div>
+                <span class="font-black tracking-tighter text-xl uppercase italic">Strefa 00 <span class="text-[#FF3366]">Terminal</span></span>
+            </div>
+            <div class="flex gap-6 text-xs font-bold uppercase tracking-widest text-slate-400">
+                <span class="hover:text-[#5BC0BE] cursor-pointer">Masa: 14.2k</span>
+                <span class="hover:text-[#5BC0BE] cursor-pointer">Skarbiec: 450 L-Credits</span>
+                <span class="text-[#FFD166]">Status: ODBIORCA</span>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto p-6 md:p-12">
+        
+        <!-- Sekcja 1: Wprowadzenie i Masa -->
+        <header class="mb-16 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+            <div>
+                <h2 class="text-xs font-bold text-[#FFD166] uppercase tracking-[0.3em] mb-4">Raport Statusu Architekta</h2>
+                <h1 class="text-5xl md:text-7xl font-black mb-6 leading-none">POTENCJAŁ <br> <span class="text-[#5BC0BE]">SUWERENNY</span></h1>
+                <p class="text-slate-400 text-lg leading-relaxed mb-8">
+                    Obecna masa projektu osiągnęła punkt krytyczny. Integracja kursu Google Data Analytics pozwala na bezpośrednie filtrowanie faktów od fikcji w czasie rzeczywistym. Dobromir zoptymalizował port 8081 pod kątem najwyższej przepustowości analitycznej.
+                </p>
+                <div class="flex gap-4">
+                    <button class="bg-[#FF3366] text-white px-8 py-3 rounded-sm font-bold text-sm uppercase tracking-widest hover:bg-pink-700 transition-colors">Start Sprintu</button>
+                    <button class="border border-slate-700 text-white px-8 py-3 rounded-sm font-bold text-sm uppercase tracking-widest hover:border-[#5BC0BE] transition-colors">Logi Jenkinsa</button>
+                </div>
+            </div>
+            <div class="card rounded-3xl p-8">
+                <h3 class="text-center text-sm font-bold text-slate-500 uppercase mb-4 tracking-widest">Wzrost Masy Projektu</h3>
+                <div class="chart-container">
+                    <canvas id="masaGrowthChart"></canvas>
+                </div>
+                <p class="text-[10px] text-center text-slate-600 mt-4 italic uppercase">Weryfikacja [LOGI] potwierdza korelację nauki z masą.</p>
+            </div>
+        </header>
+
+        <!-- Sekcja 2: Edukacja Coursera i Skarbiec -->
+        <section class="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-16">
+            
+            <div class="card rounded-3xl p-8 flex flex-col">
+                <h3 class="text-xl font-bold mb-2">Google Data Analytics</h3>
+                <p class="text-xs text-slate-500 mb-6 uppercase tracking-widest">Postęp na Coursera</p>
+                <div class="chart-container flex-grow">
+                    <canvas id="courseProgressChart"></canvas>
+                </div>
+                <div class="mt-6 p-4 bg-navy rounded-xl border border-teal-500/20">
+                    <p class="text-xs text-slate-400">Aktualny Moduł: <span class="text-white font-bold italic">Prepare Phase (Data Integrity)</span></p>
+                </div>
+            </div>
+
+            <div class="card rounded-3xl p-8 flex flex-col lg:col-span-2">
+                <h3 class="text-xl font-bold mb-2">Logistyka Dobromira</h3>
+                <p class="text-xs text-slate-500 mb-6 uppercase tracking-widest">Alokacja Tokenów Lace-Compute-Alpha</p>
+                <div class="chart-container flex-grow">
+                    <canvas id="tokenLogisticsChart"></canvas>
+                </div>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-8">
+                    <div class="text-center">
+                        <span class="block text-2xl font-black text-[#5BC0BE]">25%</span>
+                        <span class="text-[10px] uppercase text-slate-500">Edu Tax</span>
+                    </div>
+                    <div class="text-center">
+                        <span class="block text-2xl font-black text-[#FF3366]">40%</span>
+                        <span class="text-[10px] uppercase text-slate-500">Ops Cost</span>
+                    </div>
+                    <div class="text-center">
+                        <span class="block text-2xl font-black text-[#FFD166]">20%</span>
+                        <span class="text-[10px] uppercase text-slate-500">HODL</span>
+                    </div>
+                    <div class="text-center">
+                        <span class="block text-2xl font-black text-white">15%</span>
+                        <span class="text-[10px] uppercase text-slate-500">R&D</span>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Sekcja 3: Architektura Prawdy (Proces Flow) -->
+        <section class="mb-16 card rounded-3xl p-10">
+            <h2 class="text-3xl font-black mb-4 uppercase italic">Rygor Analityczny <span class="text-[#FF3366]">GP-00</span></h2>
+            <p class="text-slate-400 mb-12 max-w-3xl">
+                Zastosowanie sześciu faz analizy danych Google do weryfikacji faktów w Strefie 00. Każdy etap to filtr, który eliminuje generatywne halucynacje i pozostawia czystą esencję prawdy inżynieryjnej.
+            </p>
+            
+            <div class="flex flex-col md:flex-row items-center gap-2">
+                <div class="flow-box flex-1 min-w-[120px]">
+                    <span class="text-2xl mb-2 block">❓</span>
+                    <h4 class="text-xs font-bold text-white mb-1">ASK</h4>
+                    <p class="text-[9px] text-slate-500">Zdefiniuj problem</p>
+                </div>
+                <div class="flow-line hidden md:block"></div>
+                <div class="flow-box flex-1 min-w-[120px]">
+                    <span class="text-2xl mb-2 block">📋</span>
+                    <h4 class="text-xs font-bold text-white mb-1">PREPARE</h4>
+                    <p class="text-[9px] text-slate-500">Źródła [TECH]</p>
+                </div>
+                <div class="flow-line hidden md:block"></div>
+                <div class="flow-box flex-1 min-w-[120px] border-[#FF3366]">
+                    <span class="text-2xl mb-2 block">🧹</span>
+                    <h4 class="text-xs font-bold text-white mb-1">PROCESS</h4>
+                    <p class="text-[9px] text-slate-500">Czyść szum</p>
+                </div>
+                <div class="flow-line hidden md:block"></div>
+                <div class="flow-box flex-1 min-w-[120px]">
+                    <span class="text-2xl mb-2 block">🔍</span>
+                    <h4 class="text-xs font-bold text-white mb-1">ANALYZE</h4>
+                    <p class="text-[9px] text-slate-500">Korelacja Prawdy</p>
+                </div>
+                <div class="flow-line hidden md:block"></div>
+                <div class="flow-box flex-1 min-w-[120px]">
+                    <span class="text-2xl mb-2 block">📊</span>
+                    <h4 class="text-xs font-bold text-white mb-1">SHARE</h4>
+                    <p class="text-[9px] text-slate-500">Raport Helio</p>
+                </div>
+                <div class="flow-line hidden md:block"></div>
+                <div class="flow-box flex-1 min-w-[120px] border-[#FFD166]">
+                    <span class="text-2xl mb-2 block">⚡</span>
+                    <h4 class="text-xs font-bold text-white mb-1">ACT</h4>
+                    <p class="text-[9px] text-slate-500">Egzekucja</p>
+                </div>
+            </div>
+            <p class="text-sm text-center text-slate-500 mt-10 italic">Ten rurociąg jest fundamentem Twojej suwerenności jako Architekta.</p>
+        </section>
+
+        <!-- Sekcja 4: Relacja Prawdy (Plotly Scatter) -->
+        <section class="card rounded-3xl p-10 mb-16">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div id="analyticalScatter" class="w-full h-[400px]"></div>
+                <div>
+                    <h3 class="text-3xl font-bold mb-6 text-[#5BC0BE]">Rygor vs Błędy Systemowe</h3>
+                    <p class="text-slate-400 leading-relaxed mb-6">
+                        Wykres punktowy renderowany w technologii WebGL dowodzi twardej korelacji: im wyższy rygor fazy "PROCESS" (czyszczenie danych z kursu Google), tym niższa liczba błędów krytycznych w logach Docker. Twoja wiedza staje się bezpośrednią tarczą systemu.
+                    </p>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <span class="text-[#FF3366] font-bold">●</span>
+                            <span class="text-sm">Redukcja halucynacji o 85% po wdrożeniu filtrów Integrity.</span>
+                        </li>
+                        <li class="flex items-start gap-3">
+                            <span class="text-[#5BC0BE] font-bold">●</span>
+                            <span class="text-sm">Optymalizacja zasobów Dobromira o 12% dzięki SQL-owaniu logów.</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="p-12 border-t border-slate-800 text-center">
+        <p class="text-[10px] uppercase tracking-[0.5em] text-slate-600 font-bold mb-2">Terminal Strefy 00 | Architektura 0 PLN | Fresh State Analytica</p>
+        <p class="text-xs text-slate-500">Galatea © 2026 | Pamięć Absolutna</p>
+    </footer>
+
+    <script>
+        // --- Helper: Label Wrapping ---
+        const wrapLabel = (text) => {
+            if (typeof text !== 'string') return text;
+            const words = text.split(' ');
+            const lines = [];
+            let currentLine = '';
+            words.forEach(word => {
+                if ((currentLine + word).length > 16) {
+                    lines.push(currentLine.trim());
+                    currentLine = word + ' ';
+                } else {
+                    currentLine += word + ' ';
+                }
+            });
+            lines.push(currentLine.trim());
+            return lines.length > 1 ? lines : lines[0];
+        };
+
+        // --- Global Tooltip Config ---
+        const globalTooltip = {
+            plugins: {
+                tooltip: {
+                    callbacks: {
+                        title: function(tooltipItems) {
+                            const item = tooltipItems[0];
+                            let label = item.chart.data.labels[item.dataIndex];
+                            if (Array.isArray(label)) {
+                                return label.join(' ');
+                            } else {
+                                return label;
+                            }
+                        }
+                    },
+                    backgroundColor: '#1C2541',
+                    titleColor: '#5BC0BE',
+                    bodyColor: '#E0E1DD',
+                    borderColor: '#5BC0BE',
+                    borderWidth: 1,
+                    padding: 10
+                }
+            }
+        };
+
+        // --- Chart 1: Masa Growth (Area) ---
+        const ctxMasa = document.getElementById('masaGrowthChart').getContext('2d');
+        new Chart(ctxMasa, {
+            type: 'line',
+            data: {
+                labels: ['Start', 'Luty 22', 'Marzec 01', 'Marzec 05', 'Dziś'].map(wrapLabel),
+                datasets: [{
+                    label: 'Skumulowana Masa Projektu',
+                    data: [2000, 4500, 8200, 11500, 14200],
+                    fill: true,
+                    backgroundColor: 'rgba(255, 51, 102, 0.1)',
+                    borderColor: '#FF3366',
+                    borderWidth: 3,
+                    tension: 0.4,
+                    pointBackgroundColor: '#FFD166'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: { display: false },
+                    ...globalTooltip.plugins
+                },
+                scales: {
+                    y: { grid: { color: '#222' }, ticks: { color: '#555' } },
+                    x: { grid: { display: false }, ticks: { color: '#555' } }
+                }
+            }
+        });
+
+        // --- Chart 2: Course Progress (Donut) ---
+        const ctxProgress = document.getElementById('courseProgressChart').getContext('2d');
+        new Chart(ctxProgress, {
+            type: 'doughnut',
+            data: {
+                labels: ['Ukończone Moduły', 'W trakcie (Prepare)', 'Pozostałe moduły certyfikacji'].map(wrapLabel),
+                datasets: [{
+                    data: [15, 10, 75],
+                    backgroundColor: ['#5BC0BE', '#FF3366', '#1C2541'],
+                    borderColor: '#0B132B',
+                    borderWidth: 5
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                cutout: '80%',
+                plugins: {
+                    legend: { position: 'bottom', labels: { color: '#888', font: { size: 10 } } },
+                    ...globalTooltip.plugins
+                }
+            }
+        });
+
+        // --- Chart 3: Token Logistics (Stacked Bar) ---
+        const ctxToken = document.getElementById('tokenLogisticsChart').getContext('2d');
+        new Chart(ctxToken, {
+            type: 'bar',
+            data: {
+                labels: ['Poniedziałek', 'Wtorek', 'Środa', 'Czwartek', 'Dziś'].map(wrapLabel),
+                datasets: [
+                    { label: 'Edukacja (Most Wiedzy)', data: [200, 250, 180, 300, 450], backgroundColor: '#5BC0BE' },
+                    { label: 'Koszty Operacyjne', data: [400, 400, 400, 400, 400], backgroundColor: '#FF3366' },
+                    { label: 'Rezerwa Skarbca', data: [150, 200, 120, 180, 220], backgroundColor: '#FFD166' }
+                ]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: { stacked: true, grid: { display: false }, ticks: { color: '#555' } },
+                    y: { stacked: true, grid: { color: '#222' }, ticks: { color: '#555' } }
+                },
+                plugins: {
+                    legend: { position: 'top', labels: { color: '#888', font: { size: 10 } } },
+                    ...globalTooltip.plugins
+                }
+            }
+        });
+
+        // --- Plotly: Analytical Scatter (WebGL) ---
+        const scatterTrace = {
+            x: [10, 25, 40, 55, 70, 85, 95, 100],
+            y: [45, 38, 30, 18, 12, 5, 2, 0],
+            mode: 'markers+lines',
+            type: 'scattergl',
+            marker: {
+                size: 15,
+                color: '#FF3366',
+                line: { color: '#FFD166', width: 2 }
+            },
+            line: { color: '#5BC0BE', width: 2, dash: 'dot' },
+            name: 'Błędy Docker vs Rygor'
+        };
+
+        const scatterLayout = {
+            paper_bgcolor: 'rgba(0,0,0,0)',
+            plot_bgcolor: 'rgba(0,0,0,0)',
+            font: { color: '#E0E1DD', size: 10 },
+            margin: { t: 20, b: 40, l: 40, r: 20 },
+            xaxis: { title: 'Rygor Czyszczenia Danych (%)', gridcolor: '#222', zeroline: false },
+            yaxis: { title: 'Liczba Błędów Logów', gridcolor: '#222', zeroline: false }
+        };
+
+        Plotly.newPlot('analyticalScatter', [scatterTrace], scatterLayout, { displayModeBar: false, responsive: true });
+
+    </script>
+</body>
+</html>name: Jekyll site CI
+
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Build the site in the jekyll/builder container
+      run: |
+        docker run \
+        -v ${{ github.workspace }}:/srv/jekyll -v ${{ github.workspace }}/_site:/srv/jekyll/_site \
+        jekyll/builder:latest /bin/bash -c "chmod -R 777 /srv/jekyll && jekyll build --future"
