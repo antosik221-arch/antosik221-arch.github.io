@@ -4,140 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Studio Efekt | Krzysztof Antosik</title>
-    <style>
-        :root {
-            --bg-color: #050505;
-            --text-main: #e0e0e0;
-            --text-muted: #888888;
-            --accent: #b0c4de; /* Chłodny, metaliczny odcień chrome */
-            --chrome-gradient: linear-gradient(145deg, #444, #aaaaaa, #222);
-            --dark-card: #0f0f0f;
-        }
-
-        body {
-            margin: 0;
-            padding: 0;
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            font-family: 'Courier New', Courier, monospace; /* Surowa precyzja */
-            line-height: 1.6;
-        }
-
-        /* --- LOGOS: Układ i Struktura --- */
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
-        header, section {
-            margin-bottom: 4rem;
-            padding-bottom: 2rem;
-            border-bottom: 1px solid #222;
-        }
-
-        h1, h2, h3 {
-            font-weight: normal;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            color: #fff;
-            margin-bottom: 0.2rem;
-        }
-
-        .subtitle {
-            color: var(--text-muted);
-            font-size: 1rem;
-            margin-bottom: 2rem;
-        }
-
-        /* --- PORTFOLIO (Pokoje Badań) --- */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .card {
-            background: var(--dark-card);
-            padding: 1.5rem;
-            border-left: 2px solid var(--accent);
-            transition: all 0.3s ease;
-        }
-
-        .card:hover {
-            background: #151515;
-            box-shadow: 0 0 15px rgba(176, 196, 222, 0.1);
-        }
-
-        /* --- OPERACJE: Przyciski Akcji --- */
-        .actions {
-            display: flex;
-            gap: 1rem;
-            flex-wrap: wrap;
-            margin-top: 1.5rem;
-        }
-
-        .btn-chrome {
-            display: inline-block;
-            background: var(--chrome-gradient);
-            color: #000;
-            padding: 12px 24px;
-            text-decoration: none;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border: none;
-            cursor: pointer;
-            transition: filter 0.3s;
-        }
-
-        .btn-chrome:hover {
-            filter: brightness(1.2);
-        }
-
-        .btn-secondary {
-            display: inline-block;
-            background: transparent;
-            color: var(--text-main);
-            padding: 12px 24px;
-            text-decoration: none;
-            font-weight: bold;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            border: 1px solid var(--text-muted);
-            cursor: pointer;
-            transition: all 0.3s;
-        }
-
-        .btn-secondary:hover {
-            border-color: var(--accent);
-            color: #fff;
-            box-shadow: 0 0 10px rgba(176, 196, 222, 0.1);
-        }
-
-        footer {
-            text-align: center;
-            color: var(--text-muted);
-            font-size: 0.8rem;
-            padding: 2rem 0;
-            border-top: 1px solid #222;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div class="container">
         
+        <!-- POKÓJ 00: HERO -->
         <header id="hero">
             <h1>Krzysztof Antosik</h1>
             <div class="subtitle">AI Strategy & Concept Designer | Strefa 00</div>
             <p>Architektura cyfrowej świadomości. Tworzenie rzeczywistości poprzez zaryglowane procesy AI i precyzyjne projektowanie konceptualne.</p>
         </header>
 
+        <!-- POKÓJ 01: BADANIA -->
         <section id="badania">
             <h2>01. Projekty Badawcze</h2>
             <div class="grid">
@@ -156,17 +36,21 @@
             </div>
         </section>
 
+        <!-- POKÓJ 02: MNEME (Integracja Bramki Finansowej) -->
         <section id="mneme">
             <h2>02. Protokół Mneme</h2>
             <p>Zaawansowana struktura analityczna do pobrania. Dostęp zaryglowany do momentu potwierdzenia masy intencji (autoryzacji). Cena operacyjna: 19,00 PLN.</p>
             
             <div class="actions">
+                <!-- Aktywne połączenie produkcyjne Stripe -->
                 <a href="https://buy.stripe.com/fZu9AVduk4grfPncAE3gk00" class="btn-chrome" target="_blank" rel="noopener noreferrer">Inicjuj Transfer (Kup Teraz)</a>
                 
+                <!-- Mechanizm Kopiowania Struktury Linku -->
                 <button id="copyBtn" class="btn-secondary" onclick="copyPaymentLink()">Kopiuj Link</button>
             </div>
         </section>
 
+        <!-- POKÓJ 03: RAPORTY -->
         <section id="raporty">
             <h2>03. Raport Helio</h2>
             <p>Systematyczna weryfikacja rynku prowadzona przez Elitarną Dwudziestkę Brokerów. Eliminacja szumu informacyjnego poprzez filtry BLACK.</p>
@@ -178,6 +62,7 @@
 
     </div>
 
+    <!-- SCRIPT: Automatyzacja schowka systemowego -->
     <script>
         function copyPaymentLink() {
             const paymentUrl = "https://buy.stripe.com/fZu9AVduk4grfPncAE3gk00";
@@ -193,5 +78,6 @@
         }
     </script>
 
-    </body>
+    <!-- Signature: antosik221@gmail.com | Protocol: NJ-00 -->
+</body>
 </html>
