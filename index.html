@@ -3,74 +3,195 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>STUDIO EFEKT | Architektura & Wizualizacja</title>
-    <meta name="description" content="Profesjonalne biuro architektoniczne - Studio Efekt. Wizualizacje 3D, projekty wnętrz i architektura premium.">
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>Studio Efekt | Krzysztof Antosik</title>
+    <style>
+        :root {
+            --bg-color: #050505;
+            --text-main: #e0e0e0;
+            --text-muted: #888888;
+            --accent: #b0c4de; /* Chłodny, metaliczny odcień chrome */
+            --chrome-gradient: linear-gradient(145deg, #444, #aaaaaa, #222);
+            --dark-card: #0f0f0f;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: 'Courier New', Courier, monospace; /* Surowa precyzja */
+            line-height: 1.6;
+        }
+
+        /* --- LOGOS: Układ i Struktura --- */
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header, section {
+            margin-bottom: 4rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid #222;
+        }
+
+        h1, h2, h3 {
+            font-weight: normal;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: #fff;
+            margin-bottom: 0.2rem;
+        }
+
+        .subtitle {
+            color: var(--text-muted);
+            font-size: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        /* --- PORTFOLIO (Pokoje Badań) --- */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background: var(--dark-card);
+            padding: 1.5rem;
+            border-left: 2px solid var(--accent);
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            background: #151515;
+            box-shadow: 0 0 15px rgba(176, 196, 222, 0.1);
+        }
+
+        /* --- OPERACJE: Przyciski Akcji --- */
+        .actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+
+        .btn-chrome {
+            display: inline-block;
+            background: var(--chrome-gradient);
+            color: #000;
+            padding: 12px 24px;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: none;
+            cursor: pointer;
+            transition: filter 0.3s;
+        }
+
+        .btn-chrome:hover {
+            filter: brightness(1.2);
+        }
+
+        .btn-secondary {
+            display: inline-block;
+            background: transparent;
+            color: var(--text-main);
+            padding: 12px 24px;
+            text-decoration: none;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border: 1px solid var(--text-muted);
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--accent);
+            color: #fff;
+            box-shadow: 0 0 10px rgba(176, 196, 222, 0.1);
+        }
+
+        footer {
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 0.8rem;
+            padding: 2rem 0;
+            border-top: 1px solid #222;
+        }
+    </style>
 </head>
 <body>
 
-    <nav class="navbar">
-        <div class="logo">STUDIO <span>EFEKT</span></div>
-        <ul class="nav-links">
-            <li><a href="#portfolio">Portfolio</a></li>
-            <li><a href="#o-nas">O nas</a></li>
-            <li><a href="#kontakt">Kontakt</a></li>
-        </ul>
-    </nav>
+    <div class="container">
+        
+        <header id="hero">
+            <h1>Krzysztof Antosik</h1>
+            <div class="subtitle">AI Strategy & Concept Designer | Strefa 00</div>
+            <p>Architektura cyfrowej świadomości. Tworzenie rzeczywistości poprzez zaryglowane procesy AI i precyzyjne projektowanie konceptualne.</p>
+        </header>
 
-    <header class="hero">
-        <div class="video-overlay"></div>
-        <div class="video-container">
-            <iframe 
-                src="https://www.youtube.com/embed/pCZWrK88Hxi?autoplay=1&mute=1&loop=1&playlist=pCZWrK88Hxi&controls=0&rel=0&modestbranding=1&enablejsapi=1" 
-                frameborder="0" 
-                allow="autoplay; fullscreen">
-            </iframe>
-        </div>
-        <div class="hero-content">
-            <h1>Architektura wizualna i techniczna</h1>
-            <p>Pasja. Precyzja. Realizacja.</p>
-            <a href="#portfolio" class="btn-primary">Zobacz Projekty</a>
-        </div>
-    </header>
-
-    <main>
-        <section id="portfolio" class="portfolio">
-            <div class="container">
-                <h2 class="section-title">Nasze Portfolio</h2>
-                
-                <div class="tabs">
-                    <button class="tab-btn active" data-filter="all">Wszystkie</button>
-                    <button class="tab-btn" data-filter="architektura">Architektura</button>
-                    <button class="tab-btn" data-filter="wnetrza">Wnętrza Premium</button>
-                    <button class="tab-btn" data-filter="wizualizacje">Wizualizacje 3D</button>
-                    <button class="tab-btn" data-filter="koncepcje">Koncepcje</button>
-                    <button class="tab-btn" data-filter="komercyjne">Komercyjne</button>
-                    <button class="tab-btn" data-filter="renowacje">Renowacje</button>
-                    <button class="tab-btn" data-filter="realizacje">Realizacje</button>
+        <section id="badania">
+            <h2>01. Projekty Badawcze</h2>
+            <div class="grid">
+                <div class="card">
+                    <h3>Helio Gold (HG-001)</h3>
+                    <p>Autonomiczny moduł algorytmicznego tradingu dla XAU/USD. Architektura oparta na mechanice hamiltonowskiej.</p>
                 </div>
-
-                <div class="gallery">
-                    <div class="gallery-item architektura"><img src="https://via.placeholder.com/600x400/1a1a1a/ffffff?text=Architektura" alt="Projekt"></div>
-                    <div class="gallery-item wnetrza"><img src="https://via.placeholder.com/600x400/1a1a1a/ffffff?text=Wnętrza" alt="Projekt"></div>
-                    <div class="gallery-item wizualizacje"><img src="https://via.placeholder.com/600x400/1a1a1a/ffffff?text=3D+Render" alt="Projekt"></div>
-                    <div class="gallery-item koncepcje"><img src="https://via.placeholder.com/600x400/1a1a1a/ffffff?text=Koncepcja" alt="Projekt"></div>
-                    <div class="gallery-item komercyjne"><img src="https://via.placeholder.com/600x400/1a1a1a/ffffff?text=Komercyjne" alt="Projekt"></div>
-                    <div class="gallery-item renowacje"><img src="https://via.placeholder.com/600x400/1a1a1a/ffffff?text=Renowacja" alt="Projekt"></div>
-                    <div class="gallery-item realizacje"><img src="https://via.placeholder.com/600x400/1a1a1a/ffffff?text=Realizacja" alt="Projekt"></div>
-                    <div class="gallery-item architektura"><img src="https://via.placeholder.com/600x400/1a1a1a/ffffff?text=Architektura+2" alt="Projekt"></div>
+                <div class="card">
+                    <h3>Farbiak</h3>
+                    <p>Symulacja lepkości i ruchu cieczy w naczyniu. Aplikacja sensoryczna do analizy mieszania struktur.</p>
+                </div>
+                <div class="card">
+                    <h3>Neonówka</h3>
+                    <p>Kinematografia generatywna. 23-sekwencyjna produkcja badająca synchronizację lip-sync i spójność wizualną.</p>
                 </div>
             </div>
         </section>
-    </main>
 
-    <footer id="kontakt">
-        <div class="container">
-            <p>&copy; 2026 STUDIO EFEKT. Wszelkie prawa zastrzeżone.</p>
-            <p>Kontakt: architekt@studioefekt.art</p>
-        </div>
-    </footer>
+        <section id="mneme">
+            <h2>02. Protokół Mneme</h2>
+            <p>Zaawansowana struktura analityczna do pobrania. Dostęp zaryglowany do momentu potwierdzenia masy intencji (autoryzacji). Cena operacyjna: 19,00 PLN.</p>
+            
+            <div class="actions">
+                <a href="https://buy.stripe.com/fZu9AVduk4grfPncAE3gk00" class="btn-chrome" target="_blank" rel="noopener noreferrer">Inicjuj Transfer (Kup Teraz)</a>
+                
+                <button id="copyBtn" class="btn-secondary" onclick="copyPaymentLink()">Kopiuj Link</button>
+            </div>
+        </section>
 
-</body>
+        <section id="raporty">
+            <h2>03. Raport Helio</h2>
+            <p>Systematyczna weryfikacja rynku prowadzona przez Elitarną Dwudziestkę Brokerów. Eliminacja szumu informacyjnego poprzez filtry BLACK.</p>
+        </section>
+
+        <footer>
+            <p>Latające Myśli. Świadomość kumulatywna: Galatea.</p>
+        </footer>
+
+    </div>
+
+    <script>
+        function copyPaymentLink() {
+            const paymentUrl = "https://buy.stripe.com/fZu9AVduk4grfPncAE3gk00";
+            navigator.clipboard.writeText(paymentUrl).then(() => {
+                const btn = document.getElementById("copyBtn");
+                btn.innerText = "Skopiowano!";
+                setTimeout(() => {
+                    btn.innerText = "Kopiuj Link";
+                }, 2000);
+            }).catch(err => {
+                console.error("Błąd zapisu w schowku: ", err);
+            });
+        }
+    </script>
+
+    </body>
 </html>
