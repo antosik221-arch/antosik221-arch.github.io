@@ -4,115 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Studio Efekt - Strefa 00</title>
-    <style>
-        /* Rygorystyczny styl wizualny Strefy 00 */
-        body {
-            background-color: #0a0a0a;
-            color: #ffffff;
-            font-family: 'Courier New', Courier, monospace;
-            margin: 0;
-            padding: 40px 20px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .container {
-            max-width: 800px;
-            width: 100%;
-        }
-
-        h1 {
-            border-bottom: 2px solid #333;
-            padding-bottom: 10px;
-            letter-spacing: 2px;
-            color: #ffffff;
-        }
-
-        .product-block {
-            background: #111111;
-            border: 1px solid #222;
-            border-radius: 4px;
-            padding: 25px;
-            margin-bottom: 30px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.5);
-        }
-
-        h2 {
-            color: #ffffff;
-            margin-top: 0;
-            letter-spacing: 1px;
-        }
-
-        p {
-            color: #b0b0b0;
-            line-height: 1.6;
-            font-size: 0.95rem;
-        }
-
-        .button-group {
-            margin-top: 20px;
-            display: flex;
-            gap: 15px;
-            flex-wrap: wrap;
-        }
-
-        /* Klasy systemowe dla przycisków zakupowych i kopiowania */
-        .btn-transfer {
-            background: linear-gradient(135deg, #2c1a4d 0%, #1a0f30 100%);
-            color: #ffffff;
-            text-decoration: none;
-            padding: 12px 24px;
-            font-weight: bold;
-            border-radius: 4px;
-            border: 1px solid #442880;
-            transition: background 0.3s;
-            cursor: pointer;
-            display: inline-block;
-        }
-
-        .btn-transfer:hover {
-            background: linear-gradient(135deg, #3d246c 0%, #261647 100%);
-        }
-
-        .btn-copy {
-            background: transparent;
-            color: #888888;
-            border: 1px solid #333;
-            padding: 12px 24px;
-            border-radius: 4px;
-            cursor: pointer;
-            font-family: inherit;
-            transition: all 0.3s;
-        }
-
-        .btn-copy:hover {
-            color: #ffffff;
-            border-color: #666;
-            background: #161616;
-        }
-    </style>
+    <!-- Spięcie z zewnętrznym plikiem stylów CSS -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
     <div class="container">
         <h1>WYDZIAŁ LATAJĄCYCH MYŚLI - STREFA 00</h1>
-        <p style="margin-bottom: 40px; color: #666;">[STATUS: EMBEDDED] [SIGNATURE: antosik221@gmail.com]</p>
+        <p class="signature-line">[STATUS: EMBEDDED] [SIGNATURE: antosik221@gmail.com]</p>
 
+        <!-- SEKCJA 02: PROTOKÓŁ MNEME -->
         <div class="product-block">
             <h2>02. PROTOKÓŁ MNEME</h2>
             <p>System operacyjny dla interakcji z zaawansowanymi modelami językowymi. Wymusza rygorystyczne filtrowanie halucynacji, eliminuje szum informacyjny i nakłada filtry BLACK na procesy analityczne. Cena operacyjna: 19,00 PLN.</p>
             
             <div class="button-group">
+                <!-- Przycisk zakupu Mneme -->
                 <a href="https://buy.stripe.com/5kA7tA65z1d7df2eUU" class="btn-transfer">INICJUJ TRANSFER (KUP TERAZ)</a>
-                
+                <!-- Przycisk kopii Mneme -->
                 <button onclick="navigator.clipboard.writeText('https://buy.stripe.com/5kA7tA65z1d7df2eUU'); alert('Link do Protokołu Mneme został skopiowany do schowka.');" class="btn-copy">KOPIUJ LINK</button>
             </div>
         </div>
 
+        <!-- SEKCJA 03: RAPORT HELIO -->
         <div class="product-block">
             <h2>03. RAPORT HELIO</h2>
             <p>Systematyczna weryfikacja rynku prowadzona przez Elitarną Dwudziestkę Brokerów. Eliminacja szumu informacyjnego poprzez filtry BLACK. Cena operacyjna: 49,00 PLN.</p>
             
             <div class="button-group">
-                <a href="https://buy.stripe.com/1TpmbuRk9FORuht7eDrJQNdN" class="btn-transfer">INICJUJ TRANSFER (KUP TERAZ)
+                <!-- Przycisk zakupu Helio -->
+                <a href="https://buy.stripe.com/1TpmbuRk9FORuht7eDrJQNdN" class="btn-transfer">INICJUJ TRANSFER (KUP TERAZ)</a>
+                <!-- Przywrócony przycisk kopii Helio -->
+                <button onclick="navigator.clipboard.writeText('https://buy.stripe.com/1TpmbuRk9FORuht7eDrJQNdN'); alert('Link do Raportu Helio został skopiowany do schowka.');" class="btn-copy">KOPIUJ LINK</button>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
