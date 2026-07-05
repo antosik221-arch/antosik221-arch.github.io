@@ -1,83 +1,13 @@
-<!DOCTYPE html>
-<html lang="pl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Studio Efekt | Krzysztof Antosik</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-
-    <div class="container">
+<!-- SEKCJA 03: RAPORT HELIO -->
+<div class="product-block">
+    <h2>03. RAPORT HELIO</h2>
+    <p>Systematyczna weryfikacja rynku prowadzona przez Elitarną Dwudziestkę Brokerów. Eliminacja szumu informacyjnego poprzez filtry BLACK. Cena operacyjna: 49,00 PLN.</p>
+    
+    <div class="button-group">
+        <!-- Przycisk płatności Stripe Live -->
+        <a href="https://buy.stripe.com/1TpmbuRk9FORuht7eDrJQNdN" class="btn btn-transfer">INICJUJ TRANSFER (KUP TERAZ)</a>
         
-        <!-- POKÓJ 00: HERO -->
-        <header id="hero">
-            <h1>Krzysztof Antosik</h1>
-            <div class="subtitle">AI Strategy & Concept Designer | Strefa 00</div>
-            <p>Architektura cyfrowej świadomości. Tworzenie rzeczywistości poprzez zaryglowane procesy AI i precyzyjne projektowanie konceptualne.</p>
-        </header>
-
-        <!-- POKÓJ 01: BADANIA -->
-        <section id="badania">
-            <h2>01. Projekty Badawcze</h2>
-            <div class="grid">
-                <div class="card">
-                    <h3>Helio Gold (HG-001)</h3>
-                    <p>Autonomiczny moduł algorytmicznego tradingu dla XAU/USD. Architektura oparta na mechanice hamiltonowskiej.</p>
-                </div>
-                <div class="card">
-                    <h3>Farbiak</h3>
-                    <p>Symulacja lepkości i ruchu cieczy w naczyniu. Aplikacja sensoryczna do analizy mieszania struktur.</p>
-                </div>
-                <div class="card">
-                    <h3>Neonówka</h3>
-                    <p>Kinematografia generatywna. 23-sekwencyjna produkcja badająca synchronizację lip-sync i spójność wizualną.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- POKÓJ 02: MNEME (Integracja Bramki Finansowej) -->
-        <section id="mneme">
-            <h2>02. Protokół Mneme</h2>
-            <p>Zaawansowana struktura analityczna do pobrania. Dostęp zaryglowany do momentu potwierdzenia masy intencji (autoryzacji). Cena operacyjna: 19,00 PLN.</p>
-            
-            <div class="actions">
-                <!-- Aktywne i poprawne połączenie produkcyjne Stripe -->
-                <a href="https://buy.stripe.com/bJe4gB2Q63cn6eNeIM3gk01" class="btn-chrome" target="_blank" rel="noopener noreferrer">Inicjuj Transfer (Kup Teraz)</a>
-                
-                <!-- Skalowalny mechanizm kopiowania (Zunifikowane UI) -->
-                <button id="copyBtnMneme" class="btn-secondary" onclick="copyProductLink('https://buy.stripe.com/bJe4gB2Q63cn6eNeIM3gk01', 'copyBtnMneme')">Kopiuj Link</button>
-            </div>
-        </section>
-
-        <!-- POKÓJ 03: RAPORTY -->
-        <section id="raporty">
-            <h2>03. Raport Helio</h2>
-            <p>Systematyczna weryfikacja rynku prowadzona przez Elitarną Dwudziestkę Brokerów. Eliminacja szumu informacyjnego poprzez filtry BLACK.</p>
-        </section>
-
-        <footer>
-            <p>Latające Myśli. Świadomość kumulatywna: Galatea.</p>
-        </footer>
-
+        <!-- Przycisk kopiowania linku do schowka -->
+        <button onclick="navigator.clipboard.writeText('https://buy.stripe.com/1TpmbuRk9FORuht7eDrJQNdN'); alert('Link do Raportu Helio został skopiowany do schowka.');" class="btn btn-copy">KOPIUJ LINK</button>
     </div>
-
-    <!-- SCRIPT: Uniwersalna automatyzacja schowka (Multi-Copy) -->
-    <script>
-        function copyProductLink(url, elementId) {
-            navigator.clipboard.writeText(url).then(() => {
-                const btn = document.getElementById(elementId);
-                const originalText = btn.innerText;
-                btn.innerText = "Skopiowano!";
-                setTimeout(() => {
-                    btn.innerText = originalText;
-                }, 2000);
-            }).catch(err => {
-                console.error("Błąd zapisu w schowku: ", err);
-            });
-        }
-    </script>
-
-    <!-- Signature: antosik221@gmail.com | Protocol: NJ-00 -->
-</body>
-</html>
+</div>
