@@ -42,11 +42,11 @@
             <p>Zaawansowana struktura analityczna do pobrania. Dostęp zaryglowany do momentu potwierdzenia masy intencji (autoryzacji). Cena operacyjna: 19,00 PLN.</p>
             
             <div class="actions">
-                <!-- Aktywne połączenie produkcyjne Stripe -->
-                <a href="https://buy.stripe.com/fZu9AVduk4grfPncAE3gk00" class="btn-chrome" target="_blank" rel="noopener noreferrer">Inicjuj Transfer (Kup Teraz)</a>
+                <!-- Aktywne i poprawne połączenie produkcyjne Stripe -->
+                <a href="https://buy.stripe.com/bJe4gB2Q63cn6eNeIM3gk01" class="btn-chrome" target="_blank" rel="noopener noreferrer">Inicjuj Transfer (Kup Teraz)</a>
                 
-                <!-- Mechanizm Kopiowania Struktury Linku -->
-                <button id="copyBtn" class="btn-secondary" onclick="copyPaymentLink()">Kopiuj Link</button>
+                <!-- Skalowalny mechanizm kopiowania (Zunifikowane UI) -->
+                <button id="copyBtnMneme" class="btn-secondary" onclick="copyProductLink('https://buy.stripe.com/bJe4gB2Q63cn6eNeIM3gk01', 'copyBtnMneme')">Kopiuj Link</button>
             </div>
         </section>
 
@@ -62,15 +62,15 @@
 
     </div>
 
-    <!-- SCRIPT: Automatyzacja schowka systemowego -->
+    <!-- SCRIPT: Uniwersalna automatyzacja schowka (Multi-Copy) -->
     <script>
-        function copyPaymentLink() {
-            const paymentUrl = "https://buy.stripe.com/fZu9AVduk4grfPncAE3gk00";
-            navigator.clipboard.writeText(paymentUrl).then(() => {
-                const btn = document.getElementById("copyBtn");
+        function copyProductLink(url, elementId) {
+            navigator.clipboard.writeText(url).then(() => {
+                const btn = document.getElementById(elementId);
+                const originalText = btn.innerText;
                 btn.innerText = "Skopiowano!";
                 setTimeout(() => {
-                    btn.innerText = "Kopiuj Link";
+                    btn.innerText = originalText;
                 }, 2000);
             }).catch(err => {
                 console.error("Błąd zapisu w schowku: ", err);
