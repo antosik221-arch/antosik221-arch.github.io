@@ -3,42 +3,302 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Studio Efekt - Strefa 00</title>
-    <!-- Spięcie z zewnętrznym plikiem stylów CSS -->
-    <link rel="stylesheet" href="style.css">
+    <title>02. Protokół Mneme - Panel Wdrożeniowy</title>
+    <style>
+        :root {
+            --bg-color: #050505;
+            --panel-bg: #111111;
+            --text-main: #d0d0d0;
+            --text-highlight: #ffffff;
+            --accent: #00ffaa;
+            --border-color: #222222;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 850px;
+            width: 100%;
+        }
+
+        .header {
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 20px;
+            margin-bottom: 35px;
+        }
+
+        .header h1 {
+            color: var(--text-highlight);
+            font-size: 1.8rem;
+            margin: 0 0 10px 0;
+            letter-spacing: 1px;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .status-badge {
+            display: inline-block;
+            background-color: rgba(0, 255, 170, 0.1);
+            color: var(--accent);
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            font-family: 'Courier New', Courier, monospace;
+            border: 1px solid rgba(0, 255, 170, 0.3);
+        }
+
+        .section {
+            background-color: var(--panel-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        h2 {
+            color: var(--text-highlight);
+            font-size: 1.2rem;
+            margin-top: 0;
+            margin-bottom: 20px;
+            border-left: 3px solid var(--accent);
+            padding-left: 10px;
+        }
+
+        p, li {
+            font-size: 1rem;
+        }
+
+        ul {
+            padding-left: 20px;
+        }
+
+        li {
+            margin-bottom: 8px;
+        }
+
+        /* Sekcja z kodem i przyciskiem */
+        .code-wrapper {
+            position: relative;
+            background-color: #000000;
+            border: 1px solid #333;
+            border-radius: 4px;
+            margin-top: 20px;
+        }
+
+        .code-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #1a1a1a;
+            padding: 10px 15px;
+            border-bottom: 1px solid #333;
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+        }
+
+        .code-title {
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.85rem;
+            color: #888;
+        }
+
+        .btn-copy {
+            background-color: transparent;
+            color: var(--accent);
+            border: 1px solid var(--accent);
+            padding: 6px 15px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .btn-copy:hover {
+            background-color: var(--accent);
+            color: #000;
+        }
+
+        .btn-copy.copied {
+            background-color: var(--accent);
+            color: #000;
+        }
+
+        pre {
+            margin: 0;
+            padding: 20px;
+            overflow-x: auto;
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+
+        code {
+            font-family: 'Courier New', Courier, monospace;
+            color: var(--text-highlight);
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        /* Tabela infograficzna */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+            background-color: #0a0a0a;
+        }
+
+        th, td {
+            padding: 15px;
+            text-align: left;
+            border: 1px solid #333;
+            font-size: 0.95rem;
+        }
+
+        th {
+            background-color: #161616;
+            color: var(--text-highlight);
+            font-weight: normal;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        td.bad {
+            color: #ff5555;
+            font-style: italic;
+        }
+
+        td.good {
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        .footer {
+            text-align: center;
+            font-family: 'Courier New', Courier, monospace;
+            font-size: 0.8rem;
+            color: #555;
+            margin-top: 40px;
+        }
+    </style>
 </head>
 <body>
 
     <div class="container">
-        <h1>WYDZIAŁ LATAJĄCYCH MYŚLI - STREFA 00</h1>
-        <p class="signature-line">[STATUS: EMBEDDED] [SIGNATURE: antosik221@gmail.com]</p>
+        
+        <div class="header">
+            <h1>02. PROTOKÓŁ MNEME</h1>
+            <div class="status-badge">[STATUS: ZARYGLOWANY] - PANEL UŻYTKOWNIKA</div>
+        </div>
 
-        <!-- SEKCJA 02: PROTOKÓŁ MNEME -->
-        <div class="product-block">
-            <h2>02. PROTOKÓŁ MNEME</h2>
-            <p>System operacyjny dla interakcji z zaawansowanymi modelami językowymi. Wymusza rygorystyczne filtrowanie halucynacji, eliminuje szum informacyjny i nakłada filtry BLACK na procesy analityczne. Cena operacyjna: 19,00 PLN.</p>
+        <div class="section">
+            <p>Kupiłeś ten protokół, ponieważ modele sztucznej inteligencji (takie jak ChatGPT, Gemini czy Claude) są domyślnie zaprogramowane na bycie sztucznie uprzejmymi. Często bywają przegadane, używają marketingowego żargonu, a co gorsza — potrafią zmyślać fakty, gdy nie znają odpowiedzi (tzw. zjawisko halucynacji).</p>
+            <p><strong>Protokół Mneme to zaryglowany ładunek logiczny.</strong> Gdy wkleisz go do swojego czatu, AI zmieni architekturę swoich odpowiedzi: zacznie operować wyłącznie na twardych faktach, wyeliminuje szum i wymusi rygorystyczną precyzję.</p>
+        </div>
+
+        <div class="section">
+            <h2>KROK 1: KOD SYSTEMOWY</h2>
+            <p>Skopiuj poniższy ładunek logiczny. To jest rdzeń Protokołu Mneme, który nadpisze domyślne zachowanie Twojej sztucznej inteligencji.</p>
             
-            <div class="button-group">
-                <!-- Przycisk zakupu Mneme -->
-                <a href="https://buy.stripe.com/5kA7tA65z1d7df2eUU" class="btn-transfer">INICJUJ TRANSFER (KUP TERAZ)</a>
-                <!-- Przycisk kopii Mneme -->
-                <button onclick="navigator.clipboard.writeText('https://buy.stripe.com/5kA7tA65z1d7df2eUU'); alert('Link do Protokołu Mneme został skopiowany do schowka.');" class="btn-copy">KOPIUJ LINK</button>
+            <div class="code-wrapper">
+                <div class="code-header">
+                    <span class="code-title">payload_mneme.txt</span>
+                    <button class="btn-copy" id="copyBtn" onclick="copyCode()">KOPIUJ KOD</button>
+                </div>
+                <pre><code id="mnemeCode">[INICJALIZACJA: PROTOKÓŁ MNEME] OD TERAZ OBOWIĄZUJĄ CIĘ NOWE REGUŁY:
+1. Jesteś moim profesjonalnym, chłodnym analitykiem i asystentem logicznym.
+2. Oceniasz moje pomysły krytycznie. Opierasz się wyłącznie na sprawdzonych faktach.
+3. Obowiązuje Cię całkowity brak sztucznych pochlebstw, "cukrowania", moralizowania i przepraszania. Odpowiadasz w sposób bezpośredni, krótki i techniczny.
+4. Zabezpieczenie przed halucynacją: jeśli nie znasz odpowiedzi, brakuje Ci danych lub nie masz dostępu do sieci, masz bezwzględny obowiązek napisać "BRAK DANYCH". Nie wolno Ci zmyślać ani zgadywać.
+5. Zabezpieczenie kontekstu: jeśli mój prompt jest dla Ciebie nielogiczny, za krótki lub zawiera błędy, NIE ZGADUJ moich intencji. Wstrzymaj analizę i poproś mnie o uzupełnienie parametrów.
+6. Formatowanie: Odpowiadaj zwięźle. Używaj wypunktowań tylko tam, gdzie to konieczne dla czytelności.</code></pre>
             </div>
         </div>
 
-        <!-- SEKCJA 03: RAPORT HELIO -->
-        <div class="product-block">
-            <h2>03. RAPORT HELIO</h2>
-            <p>Systematyczna weryfikacja rynku prowadzona przez Elitarną Dwudziestkę Brokerów. Eliminacja szumu informacyjnego poprzez filtry BLACK. Cena operacyjna: 49,00 PLN.</p>
-            
-            <div class="button-group">
-                <!-- Przycisk zakupu Helio -->
-                <a href="https://buy.stripe.com/1TpmbuRk9FORuht7eDrJQNdN" class="btn-transfer">INICJUJ TRANSFER (KUP TERAZ)</a>
-                <!-- Przywrócony przycisk kopii Helio -->
-                <button onclick="navigator.clipboard.writeText('https://buy.stripe.com/1TpmbuRk9FORuht7eDrJQNdN'); alert('Link do Raportu Helio został skopiowany do schowka.');" class="btn-copy">KOPIUJ LINK</button>
-            </div>
+        <div class="section">
+            <h2>KROK 2: WDROŻENIE W TWOIM ŚRODOWISKU</h2>
+            <p><strong>Opcja A (Automatyczna - dla ChatGPT Plus):</strong></p>
+            <ul>
+                <li>W lewym dolnym rogu ekranu kliknij na swoje konto i wybierz <strong>Customize ChatGPT</strong> (Dostosuj ChatGPT).</li>
+                <li>W dolnym oknie <em>"How would you like ChatGPT to respond?"</em> wklej skopiowany Kod Systemowy. Zapisz. Od teraz każdy czat jest chroniony.</li>
+            </ul>
+            <p><strong>Opcja B (Doraźna - dla darmowych wersji AI):</strong></p>
+            <ul>
+                <li>Za każdym razem, gdy otwierasz nowy czat z problemem, wklej skopiowany kod jako <strong>swoją pierwszą wiadomość</strong>. AI załaduje reguły na czas trwania tej konkretnej rozmowy.</li>
+            </ul>
         </div>
+
+        <div class="section">
+            <h2>KROK 3: MATRYCA EFEKTYWNOŚCI (PRZED I PO)</h2>
+            <p>Zobacz, jak Protokół Mneme zmienia jakość otrzymywanych informacji, odcinając zbędny szum.</p>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>Sytuacja analityczna</th>
+                        <th>AI Domyślne (Szum)</th>
+                        <th>AI Mneme (Logika)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Pytasz o słaby pomysł biznesowy</td>
+                        <td class="bad">"To bardzo kreatywny pomysł! Możesz napotkać pewne wyzwania, ale z determinacją..."</td>
+                        <td class="good">"Projekt obciążony wysokim ryzykiem. Sugeruję ponowną weryfikację modelu kosztów."</td>
+                    </tr>
+                    <tr>
+                        <td>Brak precyzyjnych danych w pytaniu</td>
+                        <td class="bad">AI zgaduje Twoje intencje, generując 4 akapity tekstu nie na temat.</td>
+                        <td class="good">"STOP. Wymagane uzupełnienie danych. Sprecyzuj cel operacji."</td>
+                    </tr>
+                    <tr>
+                        <td>AI nie zna technicznego faktu</td>
+                        <td class="bad">Zmyśla statystyki i funkcje (halucynuje), wprowadzając Cię w błąd.</td>
+                        <td class="good">"BRAK DANYCH. Nie posiadam dostępu do zweryfikowanych informacji."</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2>KROK 4: KONSERWACJA SYSTEMU</h2>
+            <p>Nawet zaawansowane modele mają ograniczoną "pamięć krótkotrwałą". Jeśli w bardzo długiej konwersacji AI zacznie zapominać o rygorze i znów zacznie lać wodę, wyślij mu krótką komendę resetującą:</p>
+            <p style="background-color: #0a0a0a; padding: 15px; border-left: 3px solid #555; font-family: 'Courier New', Courier, monospace;">"Odchylenie od normy. Wróć do założeń Protokołu Mneme."</p>
+        </div>
+
+        <div class="footer">
+            &copy; 2026 STREFA 00 / WYDZIAŁ LATAJĄCYCH MYŚLI
+        </div>
+
     </div>
 
+    <script>
+        function copyCode() {
+            const codeText = document.getElementById('mnemeCode').innerText;
+            const btn = document.getElementById('copyBtn');
+            
+            navigator.clipboard.writeText(codeText).then(() => {
+                btn.innerText = 'SKOPIOWANO!';
+                btn.classList.add('copied');
+                
+                setTimeout(() => {
+                    btn.innerText = 'KOPIUJ KOD';
+                    btn.classList.remove('copied');
+                }, 2000);
+            }).catch(err => {
+                console.error('Błąd kopiowania: ', err);
+                btn.innerText = 'BŁĄD';
+            });
+        }
+    </script>
 </body>
 </html>
