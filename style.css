@@ -1,147 +1,239 @@
-/* ===================================================================
-   SYSTEM STYLÓW WIZUALNYCH: STREFA 00 (WYDZIAŁ LATAJĄCYCH MYŚLI)
-   =================================================================== */
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Studio Efekt - Strefa 00</title>
+    <style>
+        /* IMPORT FONTU PREMIUM */
+        @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;700&display=swap');
 
-/* Reset i przygotowanie środowiska próżniowego */
-* {
-    box-sizing: border-box;
-}
+        /* RESET I TŁO BAZOWE */
+        body {
+            margin: 0;
+            padding: 0;
+            background: radial-gradient(circle at 50% 0%, #16161e 0%, #030303 80%);
+            color: #d1d1d1;
+            font-family: 'Space Grotesk', sans-serif;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            -webkit-font-smoothing: antialiased;
+        }
 
-body {
-    background-color: #0a0a0a;
-    color: #ffffff;
-    font-family: 'Courier New', Courier, monospace;
-    margin: 0;
-    padding: 40px 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
+        /* GŁÓWNY KONTENER (GLASSMORPHISM) */
+        .container {
+            max-width: 650px;
+            width: 100%;
+            margin: 40px 20px;
+            padding: 2.5rem;
+            background: rgba(10, 10, 12, 0.4);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+        }
 
-/* Kontener główny struktury nadrzędnej */
-.container {
-    max-width: 800px;
-    width: 100%;
-}
+        /* TYPOGRAFIA NAGŁÓWKÓW */
+        h1 {
+            font-size: 1.3rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: #ffffff;
+            text-align: center;
+            margin-bottom: 0.3rem;
+            text-shadow: 0 0 15px rgba(255,255,255,0.15);
+            font-weight: 700;
+        }
 
-/* Nagłówek systemowy */
-h1 {
-    border-bottom: 2px solid #222;
-    padding-bottom: 15px;
-    margin-bottom: 5px;
-    letter-spacing: 2px;
-    font-size: 1.8rem;
-    color: #ffffff;
-}
+        .signature-line {
+            text-align: center;
+            font-family: monospace;
+            font-size: 0.75rem;
+            color: #555;
+            margin-bottom: 3.5rem;
+            letter-spacing: 1.5px;
+        }
 
-.signature-line {
-    margin-top: 0;
-    margin-bottom: 40px;
-    color: #555555;
-    font-size: 0.85rem;
-    letter-spacing: 1px;
-}
+        /* BLOKI PRODUKTOWE */
+        .product-block {
+            margin-bottom: 2.5rem;
+            padding: 2rem;
+            background: linear-gradient(145deg, rgba(20,20,22,0.8) 0%, rgba(5,5,5,0.9) 100%);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 4px;
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
 
-/* Bloki produktowe (Moduły badawcze) */
-.product-block {
-    background-color: #111111;
-    border: 1px solid #222;
-    border-radius: 4px;
-    padding: 30px;
-    margin-bottom: 35px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
-    transition: border-color 0.3s ease;
-}
+        .product-block:hover {
+            border-color: rgba(255,255,255,0.15);
+            box-shadow: 0 5px 20px rgba(0,0,0,0.4);
+        }
 
-.product-block:hover {
-    border-color: #333333;
-}
+        .product-block h2 {
+            margin-top: 0;
+            color: #ffffff;
+            font-size: 1.1rem;
+            letter-spacing: 2px;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
+            padding-bottom: 0.8rem;
+            font-weight: 400;
+        }
 
-h2 {
-    color: #ffffff;
-    margin-top: 0;
-    margin-bottom: 15px;
-    letter-spacing: 1px;
-    font-size: 1.3rem;
-}
+        .product-block p {
+            font-size: 0.95rem;
+            color: #a0a0a0;
+            font-weight: 300;
+        }
 
-p {
-    color: #b0b0b0;
-    line-height: 1.6;
-    font-size: 0.95rem;
-    margin-bottom: 0;
-}
+        /* LISTA SPECYFIKACJI */
+        .specs-list {
+            margin: 1.8rem 0;
+            padding-left: 1.2rem;
+            color: #bcbcbc;
+            font-size: 0.9rem;
+            list-style: none;
+        }
 
-/* Grupa operacyjna przycisków */
-.button-group {
-    margin-top: 25px;
-    display: flex;
-    gap: 15px;
-    flex-wrap: wrap;
-}
+        .specs-list li {
+            margin-bottom: 0.7rem;
+            position: relative;
+        }
 
-/* Przycisk Główny: Inicjacja Transferu (Gradient Purpury) */
-.btn-transfer {
-    background: linear-gradient(135deg, #2c1a4d 0%, #1a0f30 100%);
-    color: #ffffff;
-    text-decoration: none;
-    padding: 14px 28px;
-    font-weight: bold;
-    font-size: 0.9rem;
-    letter-spacing: 1px;
-    border-radius: 4px;
-    border: 1px solid #442880;
-    transition: all 0.3s ease;
-    cursor: pointer;
-    display: inline-block;
-    text-align: center;
-}
+        .specs-list li::before {
+            content: '◆'; /* Elegancki romb zamiast kropki */
+            position: absolute;
+            left: -1.2rem;
+            color: #444;
+            font-size: 0.7rem;
+            top: 5px;
+        }
 
-.btn-transfer:hover {
-    background: linear-gradient(135deg, #3d246c 0%, #261647 100%);
-    border-color: #5c35ab;
-    box-shadow: 0 0 15px rgba(68, 40, 128, 0.4);
-}
+        /* PANEL LOGISTYCZNY */
+        .transfer-mechanics {
+            font-family: monospace;
+            font-size: 0.75rem;
+            color: #777;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 1.2rem;
+            border-left: 2px solid rgba(255, 255, 255, 0.7);
+            margin-bottom: 1.8rem;
+            line-height: 1.6;
+            letter-spacing: 0.5px;
+        }
 
-/* Przycisk Pomocniczy: Kopiowanie Linku (Surowa ramka) */
-.btn-copy {
-    background: transparent;
-    color: #888888;
-    border: 1px solid #222;
-    padding: 14px 28px;
-    font-size: 0.9rem;
-    letter-spacing: 1px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-family: inherit;
-    transition: all 0.3s ease;
-    text-align: center;
-}
+        /* PRZYCISK TRANSFERU (GLAMOUR) */
+        .btn-transfer {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: transparent;
+            color: #ffffff;
+            border: 1px solid rgba(255,255,255,0.3);
+            text-align: center;
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 0.9rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            box-sizing: border-box;
+            position: relative;
+            overflow: hidden;
+            border-radius: 2px;
+        }
 
-.btn-copy:hover {
-    color: #ffffff;
-    border-color: #555555;
-    background-color: #161616;
-}
+        /* Subtelny refleks świetlny na przycisku */
+        .btn-transfer::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%; width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+            transition: left 0.6s ease;
+        }
 
-/* Responsywność dla urządzeń mobilnych */
-@media (max-width: 600px) {
-    body {
-        padding: 20px 10px;
-    }
-    
-    .product-block {
-        padding: 20px;
-    }
-    
-    .button-group {
-        flex-direction: column;
-        gap: 10px;
-    }
-    
-    .btn-transfer, .btn-copy {
-        width: 100%;
-    }
-}
+        .btn-transfer:hover::before {
+            left: 100%;
+        }
+
+        .btn-transfer:hover {
+            background-color: #ffffff;
+            color: #000000;
+            border-color: #ffffff;
+            box-shadow: 0 0 20px rgba(255,255,255,0.2);
+            font-weight: 700;
+        }
+
+        /* PRZYCISK ZABLOKOWANY */
+        .btn-locked {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background-color: rgba(5,5,5,0.6);
+            color: #444;
+            border: 1px dashed #222;
+            text-align: center;
+            font-weight: 400;
+            font-size: 0.85rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: not-allowed;
+            box-sizing: border-box;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>WYDZIAŁ LATAJĄCYCH MYŚLI - STREFA 00</h1>
+        <p class="signature-line">[STATUS: LIVE] [SIGNATURE: antosik221@gmail.com]</p>
+
+        <!-- SEKCJA 01: MANIFEST -->
+        <div class="product-block">
+            <h2>01. MANIFEST SYSTEMOWY</h2>
+            <p>Strefa 00 to przestrzeń inżynieryjna oparta na surowej logice. Odrzucamy szum informacyjny, marketingowe halucynacje i bezużyteczne algorytmy. Budujemy architekturę myśli, w której jakość wyników jest wprost proporcjonalna do precyzji wprowadzonych danych. Forma zawsze wynika z funkcji.</p>
+        </div>
+
+        <!-- SEKCJA 02: PROTOKÓŁ MNEME -->
+        <div class="product-block">
+            <h2>02. PROTOKÓŁ MNEME</h2>
+            <p>System operacyjny dla interakcji z zaawansowanymi modelami językowymi. Cena operacyjna: 19,00 PLN.</p>
+            
+            <ul class="specs-list">
+                <li>Wymusza na sztucznej inteligencji chłodną analitykę i rygor logiczny.</li>
+                <li>Gwarantuje ocenę koncepcji wyłącznie na podstawie zweryfikowanych faktów.</li>
+                <li>Całkowicie eliminuje sztuczne pochlebstwa, "cukrowanie" i moralizowanie.</li>
+                <li>Dystrybuowany jako czysty ładunek tekstowy (inicjalizacja poprzez kopiuj-wklej).</li>
+            </ul>
+
+            <div class="transfer-mechanics">
+                [MECHANIKA TRANSFERU]: Kliknięcie inicjuje bezpieczny proces płatności (Stripe: Karta / BLIK). Po poprawnej autoryzacji nastąpi natychmiastowe, zautomatyzowane przekierowanie do ukrytego terminala z gotowym kodem systemowym.
+            </div>
+            
+            <div class="button-group">
+                <!-- TUTAJ WKLEJ WŁAŚCIWY LINK ZE STRIPE -->
+                <a href="TWÓJ_AKTYWNY_LINK_ZE_STRIPE" class="btn-transfer">INICJUJ TRANSFER (KUP TERAZ)</a>
+            </div>
+        </div>
+
+        <!-- SEKCJA 03: RAPORT HELIO (ZABLOKOWANY W R&D) -->
+        <div class="product-block" style="opacity: 0.4;">
+            <h2>03. RAPORT HELIO</h2>
+            <p>Systematyczna weryfikacja rynku prowadzona przez Elitarną Dwudziestkę Brokerów. Eliminacja szumu informacyjnego poprzez filtry BLACK.</p>
+            
+            <div class="transfer-mechanics">
+                [STATUS LOGISTYCZNY]: Moduł wycofany do środowiska testowego. Trwa budowa architektury kontenerowej i automatycznych testów realizmu.
+            </div>
+
+            <div class="button-group">
+                <div class="btn-locked">TRANSFER WSTRZYMANY (FAZA LAB / R&D)</div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
