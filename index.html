@@ -6,6 +6,37 @@
     <title>Studio Efekt - Strefa 00</title>
     <link rel="stylesheet" href="style.css">
     <style>
+        .product-block {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            border: 1px solid #222;
+            background-color: #0d0d0d;
+        }
+        .product-block h2 {
+            margin-top: 0;
+            color: #ffffff;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+            border-bottom: 1px solid #333;
+            padding-bottom: 0.5rem;
+        }
+        .specs-list {
+            margin: 1rem 0;
+            padding-left: 1.2rem;
+            color: #cccccc;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+        .specs-list li {
+            margin-bottom: 0.4rem;
+        }
+        .transfer-mechanics {
+            font-size: 0.85rem;
+            color: #777777;
+            margin-bottom: 1.2rem;
+            border-left: 2px solid #444;
+            padding-left: 0.8rem;
+        }
         .btn-locked {
             display: inline-block;
             width: 100%;
@@ -21,6 +52,23 @@
             cursor: not-allowed;
             box-sizing: border-box;
         }
+        .btn-transfer {
+            display: inline-block;
+            width: 100%;
+            padding: 12px;
+            background-color: #ffffff;
+            color: #000000;
+            text-align: center;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            transition: background-color 0.2s;
+            box-sizing: border-box;
+        }
+        .btn-transfer:hover {
+            background-color: #cccccc;
+        }
     </style>
 </head>
 <body>
@@ -29,22 +77,45 @@
         <h1>WYDZIAŁ LATAJĄCYCH MYŚLI - STREFA 00</h1>
         <p class="signature-line">[STATUS: LIVE] [SIGNATURE: antosik221@gmail.com]</p>
 
+        <!-- SEKCJA 01: MANIFEST -->
+        <div class="product-block">
+            <h2>01. MANIFEST SYSTEMOWY</h2>
+            <p>Strefa 00 to przestrzeń inżynieryjna oparta na surowej logice. Odrzucamy szum informacyjny, marketingowe halucynacje i bezużyteczne algorytmy. Budujemy architekturę myśli, w której jakość wyników jest wprost proporcjonalna do precyzji wprowadzonych danych. Forma zawsze wynika z funkcji.</p>
+        </div>
+
         <!-- SEKCJA 02: PROTOKÓŁ MNEME -->
         <div class="product-block">
             <h2>02. PROTOKÓŁ MNEME</h2>
-            <p>System operacyjny dla interakcji z zaawansowanymi modelami językowymi. Wymusza rygorystyczne filtrowanie halucynacji, eliminuje szum informacyjny i nakłada filtry BLACK na procesy analityczne. Cena operacyjna: 19,00 PLN.</p>
+            <p>System operacyjny dla interakcji z zaawansowanymi modelami językowymi. Cena operacyjna: 19,00 PLN.</p>
+            
+            <ul class="specs-list">
+                <li>Wymusza na sztucznej inteligencji chłodną analitykę i rygor logiczny.</li>
+                <li>Gwarantuje ocenę koncepcji wyłącznie na podstawie zweryfikowanych faktów.</li>
+                <li>Całkowicie eliminuje sztuczne pochlebstwa, "cukrowanie" i moralizowanie.</li>
+                <li>Dystrybuowany jako czysty ładunek tekstowy (inicjalizacja poprzez kopiuj-wklej).</li>
+            </ul>
+
+            <div class="transfer-mechanics">
+                [MECHANIKA TRANSFERU]: Kliknięcie inicjuje bezpieczny proces płatności (Stripe: Karta / BLIK). Po poprawnej autoryzacji nastąpi natychmiastowe, zautomatyzowane przekierowanie do ukrytego terminala z gotowym kodem systemowym.
+            </div>
             
             <div class="button-group">
-                <!-- TUTAJ JEST LINK DO STRIPE (Nie do pliku HTML!) -->
-                <a href="https://buy.stripe.com/bJe4gB2Q63cn6eNeIM3gk01" class="btn-transfer">INICJUJ TRANSFER (KUP TERAZ)</a>
+                <!-- TUTAJ WKLEJ WŁAŚCIWY LINK ZE STRIPE -->
+                <a href="https://buy.stripe.com/bJe4gB2Q63cn6eNeIM3gk01
+
+" class="btn-transfer">INICJUJ TRANSFER (KUP TERAZ)</a>
             </div>
         </div>
 
         <!-- SEKCJA 03: RAPORT HELIO (ZABLOKOWANY W R&D) -->
         <div class="product-block" style="opacity: 0.5;">
             <h2>03. RAPORT HELIO</h2>
-            <p>Systematyczna weryfikacja rynku prowadzona przez Elitarną Dwudziestkę Brokerów. Eliminacja szumu informacyjnego poprzez filtry BLACK. Cena operacyjna: 49,00 PLN.</p>
+            <p>Systematyczna weryfikacja rynku prowadzona przez Elitarną Dwudziestkę Brokerów. Eliminacja szumu informacyjnego poprzez filtry BLACK.</p>
             
+            <div class="transfer-mechanics">
+                [STATUS LOGISTYCZNY]: Moduł wycofany do środowiska testowego. Trwa budowa architektury kontenerowej i automatycznych testów realizmu.
+            </div>
+
             <div class="button-group">
                 <div class="btn-locked">TRANSFER WSTRZYMANY (FAZA LAB / R&D)</div>
             </div>
